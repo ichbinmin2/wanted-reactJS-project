@@ -1,5 +1,6 @@
-import ReactDOM from "react-dom";
 import React from "react";
+import ReactDOM from "react-dom";
+import "./common/reset.css";
 import MainBar from "./components/MainBar/MainBar";
 
 function App() {

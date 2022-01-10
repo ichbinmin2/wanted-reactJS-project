@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./MainBar.css";
+import styles from "../MainBar/MainBar.module.css";
 
 const MenuIcon = "/images/icons/menu.png";
 const LogoIcon = "/images/icons/logo.png";
@@ -9,64 +9,106 @@ const NewIcon = "/images/icons/new.svg";
 const SeeMoreIcon = "/images/icons/seeMore.svg";
 const ProfileImage = "/images/profile.jpeg";
 
-function MainBar(props) {
+function MainBar() {
   return (
-    <section className="">
-      <div className="">
-        <nav className="">
-          <div className="">
-            <img src={MenuIcon} />
-            <img src={LogoIcon} />
+    <section className={styles.section}>
+      <div className={styles.mainBar}>
+        <nav className={styles.nav}>
+          {/* navTop */}
+          <div className={styles.navTop}>
+            <button className={styles.navTopBtn}>
+              <img src={MenuIcon} className={styles.menuIcon} />
+            </button>
+            <img src={LogoIcon} className={styles.logoIcon} />
           </div>
-          <ul className="">
-            <li className="">채용</li>
-            <li className="">이벤트</li>
-            <li className="">직군별 연봉</li>
-            <li className="">이력서</li>
-            <li className="">커뮤니티</li>
-            <li className="">프리랜서</li>
-            <li className="">AI 합격 예측</li>
+          {/* menu list */}
+          <ul className={styles.menuList}>
+            <li className={(styles.menu, styles.menuHome)}>
+              <a herf="###" className={styles.menuA}>
+                홈
+              </a>
+            </li>
+            <li className={styles.menu}>
+              <a herf="###" className={styles.menuA}>
+                채용
+              </a>
+            </li>
+            <li className={styles.menu}>
+              <a herf="###" className={styles.menuA}>
+                이벤트
+              </a>
+            </li>
+            <li className={styles.menu}>
+              <a herf="###" className={(styles.menuA, styles.moreVisible)}>
+                직군별 연봉
+              </a>
+            </li>
+            <li className={styles.menu}>
+              <a herf="###" className={(styles.menuA, styles.moreVisible)}>
+                이력서
+              </a>
+            </li>
+            <li className={styles.menu}>
+              <a herf="###" className={(styles.menuA, styles.moreVisible)}>
+                커뮤니티
+              </a>
+            </li>
+            <li className={styles.menu}>
+              <a herf="###" className={(styles.menuA, styles.moreVisible)}>
+                프리랜서
+              </a>
+            </li>
+            <li className={styles.menu}>
+              <a herf="###" className={(styles.menuA, styles.moreVisible)}>
+                AI 합격 예측
+              </a>
+            </li>
           </ul>
-          <aside className="">
-            <ul className="">
-              <li className="">
-                <button className="">
-                  <img src={SearchIcon} className="" />
+          {/* aside icon menu */}
+          <aside className={styles.aside}>
+            <ul className={styles.asideUl}>
+              <li className={(styles.search, styles.list)}>
+                <button className={styles.searchBtn}>
+                  <img
+                    src={SearchIcon}
+                    className={(styles.searchIcon, styles.icon)}
+                  />
                 </button>
               </li>
-              <li className="">
-                <button className="">
-                  <img src={NoticeIcon} className="" />
+              <li className={(styles.notice, styles.list)}>
+                <button className={styles.noticeBtn}>
+                  <img
+                    src={NoticeIcon}
+                    className={(styles.noticeIcon, styles.icon)}
+                  />
                 </button>
-                <span className="">
-                  new
-                  <img src={NewIcon} className="" />
+                <span className={styles.newIconBox}>
+                  <img src={NewIcon} className={styles.newIcon} />
                 </span>
               </li>
-              <li className="">
-                <button className="">
-                  <div className="">
-                    프로필사진
-                    <img src={ProfileImage} className="" />
+              <li className={(styles.profile, styles.list)}>
+                <button className={styles.profileBtn}>
+                  <div className={styles.profileBox}>
+                    <img src={ProfileImage} className={styles.profileImg} />
                   </div>
                 </button>
-                <span className="">
-                  new
-                  <img src={NewIcon} className="" />
+                <span className={styles.newIconBox}>
+                  <img src={NewIcon} className={styles.newIcon} />
                 </span>
               </li>
-              <li className="">
-                <a href="###" className="">
+
+              <li className={(styles.service, styles.list)}>
+                <a href="###" className={styles.serviceLink}>
                   기업 서비스
                 </a>
               </li>
 
               {/* 반응형 */}
-              {/* <li className="">
-                <button className="">
-                  <img src={SeeMoreIcon}  className=""/>
+              <li className={(styles.seeMore, styles.list)}>
+                <button className={styles.seeMoreBtn}>
+                  <img src={SeeMoreIcon} className={styles.seeMoreIcon} />
                 </button>
-              </li> */}
+              </li>
             </ul>
           </aside>
         </nav>

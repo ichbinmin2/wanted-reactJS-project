@@ -7,15 +7,23 @@
   z-index: 100;
 }
 
-.mainBar {
-  height: inherit;
-  margin: 0 auto;
-  width: 90%;
+.warpper {
+  position: relative;
+  max-width: 1060px;
 }
 
-.nav {
+.nav,
+.navTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+/* navTop */
+.navTopWarp {
+  display: flex;
 }
 
 .navTopBtn {
@@ -23,89 +31,133 @@
   margin-right: 15px;
 }
 
-.menuIcon {
-  width: 17px;
+.navTopIcon {
   height: 14px;
+  object-fit: contain;
+}
+
+.logoLink {
+  display: block;
 }
 
 .logoIcon {
-  width: 72px;
+  height: 17px;
 }
 
+/* menu list */
 .menuList {
-  display: flex;
-  flex: 1 1;
-  justify-content: space-evenly;
+  height: inherit;
+  text-align: center;
+  margin: 0;
 }
 
-/* aside */
+.menu {
+  height: inherit;
+  display: inline-block;
+}
+
+.menuA {
+  position: relative;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 15px;
+  display: inline-block;
+}
+
+.homeVisible {
+  box-shadow: inset 0 -2px #258bf7;
+}
+
+/*** aside ***/
 .aside {
-  padding: 9px 0;
+  height: 100%;
 }
 
-.list {
+.aside > ul {
+  height: 100%;
+  margin: 0;
+}
+
+.aside > ul li {
   position: relative;
   display: inline-block;
   height: 100%;
   vertical-align: middle;
 }
 
-.list a {
-  display: inline-block;
-  vertical-align: bottom;
-  line-height: 32px;
+.aside > ul li > * {
+  height: 100%;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+  line-height: 1;
 }
 
-.menuHome {
-  box-shadow: inset 0 -2px #258bf7;
+.noticeItem,
+.profileItem {
+  position: relative;
 }
 
-.icon {
-  width: 18px;
-  height: 18px;
+.notice > span {
+  top: -4px;
+  left: 24px;
 }
 
+.notice > span,
+.profile > span {
+  position: absolute;
+  top: -2px;
+  left: 22px;
+  padding: 0 !important;
+}
+
+/* aside newIcon */
+.newIconBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: #36f;
+  border-radius: 5px;
+}
+
+/* aside search */
 .searchBtn {
   position: relative;
   margin-top: 5px;
 }
 
-.noticeBtn {
+/* aside notice */
+.aside > ul li .noticeBtn {
   position: relative;
   margin-right: 10px;
   margin-top: 5px;
 }
 
-.newIconBox {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 !important;
-  top: -4px;
-  left: 24px;
-  width: 13px;
-  height: 13px;
-  background-color: rgb(51, 102, 255);
-  border-radius: 5px;
-}
+/* aside profile */
 
-.profile {
+.aside > ul .profile {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   margin-right: 5px;
 }
-.profileBtn {
+
+.aside > ul li .profileBtn {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  vertical-align: top;
   padding: 0;
   margin-right: 11px;
   height: 32px;
 }
 
-.profileBox {
+.aside > ul li .profileBtn .profileBox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,49 +166,138 @@
   border-radius: 50%;
   border: 1px solid #e1e2e3;
   background-color: #fff;
+  overflow: hidden;
 }
 
-.profileImg {
+.aside > ul li .profileBtn .profileBox > div {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.service {
+/* aside service */
+.aside > ul .leftDivision {
   display: inline-flex;
 }
 
-.service:before {
+.aside > ul .leftDivision:before {
   display: block;
-  content: "";
+  margin: auto 10px;
   width: 1px;
   height: 10px;
   background-color: #e1e2e3;
-  margin: auto 10px;
+  content: "";
 }
 
-.serviceLink {
-  height: 30px;
-  padding: 0 10px;
-  margin-left: 15px;
+.aside > ul li .serviceLink {
+  font-size: 13px;
   color: #666;
   line-height: 30px;
+  height: 30px;
   border: 1px solid #e1e2e3;
   border-radius: 15px;
-  font-size: 13px;
+  padding: 0 10px;
+  margin-left: 15px;
   font-weight: 400;
 }
-@media (min-width: 992px) and (max-width: 1199px) {
-  .mainBar {
+
+.aside > ul li a {
+  display: inline-block;
+  vertical-align: bottom;
+  line-height: 32px;
+}
+
+/* seeMore menu */
+.aside > ul li .seeMoreBtn {
+  margin-right: 10px;
+  padding-left: 10px;
+}
+
+.asideIcon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 1200px) {
+  .warpper {
     margin: 0 auto;
+    width: 87.72%;
     height: 50px;
+  }
+
+  .homeVisible {
+    display: none;
+  }
+
+  .aside > ul li > * {
+    padding: 0 10px;
+  }
+
+  .seeMore {
+    display: none !important;
   }
 }
 
-@media (max-width: 767px) {
-  .mainBar {
+@media (min-width: 992px) and (max-width: 1199px) {
+  .warpper {
+    margin: 0 auto;
+    height: 50px;
+    width: 90%;
+  }
+
+  .homeVisible {
+    display: none;
+  }
+
+  .noticeBtn {
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .menuList {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1 1;
+  }
+
+  .menuA {
+    font-size: 13px;
+    padding: 15px 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .warpper {
+    margin: 0 auto;
     height: 110px;
+    width: 90%;
+  }
+
+  .navTop {
+    padding: 15px 0;
+    height: 60px;
+    width: 100%;
+  }
+
+  .logoLink {
+    position: relative;
+    float: left;
+  }
+
+  .homeVisible {
+    display: none;
+  }
+
+  .searchBtn {
+    margin: 0;
+  }
+
+  .noticeBtn {
+    margin: 0;
   }
 }
 
@@ -166,39 +307,24 @@
     width: 100%;
     padding: 15px 20px;
   }
-}
 
-@media (max-width: 767px) {
-  .menuList {
-    text-align: left;
-  }
-}
-
-@media (min-width: 1200px) {
-  .seeMore {
-    display: none !important;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1100px) {
-  .menu li a {
-    font-size: 13px;
-    padding: 15px 0;
-  }
-}
-/* 
-@media (min-width: 992px) and (max-width: 1100px) .Menu_className__gGcYQ li a {
-  padding: 15px 0;
-} */
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .menuHome {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
   .moreVisible {
     display: none;
+  }
+
+  .menuA {
+    padding: 11px 10px 19px;
+  }
+
+  .aside > ul {
+    margin-top: -5px;
+  }
+
+  .searchBtn {
+    margin: 0;
+  }
+
+  .noticeBtn {
+    margin: 0;
   }
 }

@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+
+import Carousel from "components/Carousel/Carousel";
+import MainBar from "components/MainBar/MainBar";
+
 import "./common/reset.css";
-import Carousel from "./components/Carousel/Carousel";
-import MainBar from "./components/MainBar/MainBar";
 
 function App() {
   return (

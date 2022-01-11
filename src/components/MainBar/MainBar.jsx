@@ -3,7 +3,7 @@ import styles from "components/MainBar/MainBar.module.css";
 
 const NavTopIcon = "/images/icons/menu.png";
 const LogoIcon = "/images/icons/logo.png";
-//
+
 const SearchIcon = "/images/icons/search.svg";
 const NoticeIcon = "/images/icons/notice.svg";
 const NewIcon = "/images/icons/new.svg";
@@ -130,7 +130,6 @@ function MainBar() {
                 </a>
               </li>
 
-              {/* 반응형 */}
               <li className={`${styles.seeMore}`}>
                 <button className={`${styles.seeMoreBtn} ${styles.asideBtn}`}>
                   <img src={SeeMoreIcon} className={styles.seeMoreIcon} />

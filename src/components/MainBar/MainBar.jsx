@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "components/MainBar/MainBar.module.css";
+import styles from "./MainBar.module.css";
 
 const NavTopIcon = "/images/icons/menu.png";
 const LogoIcon = "/images/icons/logo.png";

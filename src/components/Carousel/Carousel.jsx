@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "components/Carousel/Carousel.module.css";
+import styles from "./Carousel.module.css";
 
 const RightArrow = "/images/icons/right-arrow.svg";
 

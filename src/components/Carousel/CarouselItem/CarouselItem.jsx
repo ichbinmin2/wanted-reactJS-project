@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react/cjs/react.development";
 import styles from "./CarouselItem.module.css";
 
 const RightArrow = "/images/icons/right-arrow.svg";
@@ -18,9 +19,9 @@ const CarouselItem = ({ info }) => {
           />
         </a>
       </div>
-      <div className={styles.infoBox}>
-        <h2>Title</h2>
-        <h3>text</h3>
+      <div className={`${styles.infoBox} `}>
+        <h2>{info.title}</h2>
+        <h3>{info.content}</h3>
         <hr className={`${styles.divider} ${styles.rootDivider}`} />
         <a
           className={`${styles.rootBtn} ${styles.btnText}

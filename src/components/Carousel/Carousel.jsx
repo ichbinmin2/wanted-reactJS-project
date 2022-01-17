@@ -5,6 +5,7 @@ import CarouselItem from "./CarouselItem/CarouselItem";
 
 function Carousel() {
   const [count, setCount] = useState(0);
+  const [isTranstioning, setIsTranstioning] = useState(false);
   // ref
   const slideContainer = useRef();
 
@@ -17,20 +18,42 @@ function Carousel() {
   const bannerWidth = bannerInnerWidth + rightMargin;
 
   const nextArrow = () => {
-    setCount((old) => old + 1);
+    if (!isTranstioning) {
+      setCount((old) => old + 1);
+      setIsTranstioning(true);
+    }
   };
 
-  const prevArrow = () => {
-    setCount((old) => old - 1);
-  };
+  const prevArrow = () => {};
 
-  const width = slideLength * bannerWidth;
+  useEffect(() => {
+    const handler = () => {
+      setIsTranstioning(false);
+
+      if (count >= slideLength) {
+        slideContainer.current.style.transition = "none";
+        setCount(0);
+      }
+    };
+
+    slideContainer.current.addEventListener("transitionend", handler);
+    slideContainer.current.style.transition = `transform 500ms ease 0s`;
+
+    return () => {
+      slideContainer.current.removeEventListener("transitionend", handler);
+    };
+  }, [count, setCount]);
+
+  const width = (slideLength + 2) * bannerWidth;
   const leftMargin = (window.innerWidth - bannerWidth) / 2;
   const offset = bannerWidth * (count + 1) - leftMargin;
 
   useEffect(() => {
     slideContainer.current.style.transform = `translateX(${-offset}px)`;
   }, [count]);
+
+  const firstBanner = bannerList[0];
+  const lastBanner = bannerList[bannerList.length - 1];
 
   return (
     <section className={styles.main}>
@@ -44,11 +67,17 @@ function Carousel() {
               }}
               ref={slideContainer}
             >
+              <div className={styles.slickSlide}>
+                <CarouselItem info={lastBanner} key="lastCopy" />
+              </div>
               {bannerList.map((info) => (
                 <div className={styles.slickSlide}>
                   <CarouselItem info={info} key={info.id} />
                 </div>
               ))}
+              <div className={styles.slickSlide}>
+                <CarouselItem info={firstBanner} key="firstCopy" />
+              </div>
             </div>
           </div>
         </div>

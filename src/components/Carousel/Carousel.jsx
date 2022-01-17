@@ -7,6 +7,9 @@ import ArrowIcon from "../ArrowIcon/ArrowIcon";
 function Carousel() {
   const [count, setCount] = useState(0);
   const [isTranstioning, setIsTranstioning] = useState(false);
+  const [fakeCount, setFakeCount] = useState(false);
+
+  const [active, setActive] = useState(false);
 
   // ref
   const slideContainer = useRef();
@@ -17,19 +20,23 @@ function Carousel() {
   const firstBanner = bannerList[0];
   const lastBanner = bannerList[bannerList.length - 1];
 
+  const windowWidth = window.innerWidth || document.body.clientWidth;
   const rightMargin = 24;
   const bannerInnerWidth = 1060;
   const bannerWidth = bannerInnerWidth + rightMargin;
 
   const width = (slideLength + 2) * bannerWidth;
-  const leftMargin = (window.innerWidth - bannerWidth) / 2;
+  const leftMargin = (windowWidth - bannerWidth) / 2;
   const offset = bannerWidth * (count + 1) - leftMargin;
 
   const nextArrow = () => {
+    // transtioning이 지속되고 있다면
     if (!isTranstioning) {
       setCount((old) => old + 1);
       setIsTranstioning(true);
     }
+
+    setFakeCount(false);
   };
 
   const prevArrow = () => {
@@ -37,30 +44,31 @@ function Carousel() {
       setCount((old) => old + -1);
       setIsTranstioning(true);
     }
+
+    setFakeCount(false);
   };
 
   useEffect(() => {
-    console.log(slideLength);
-    console.log(count);
     const handler = () => {
+      // transitioning
       setIsTranstioning(false);
 
       if (count >= slideLength) {
-        slideContainer.current.style.transition = "none";
+        setFakeCount(true);
         setCount(0);
-      } else if (count <= -1) {
-        slideContainer.current.style.transition = "none";
+      }
+
+      if (count <= -1) {
+        setFakeCount(true);
         setCount(slideLength - 1);
       }
     };
-
     slideContainer.current.addEventListener("transitionend", handler);
-    slideContainer.current.style.transition = `transform 350ms ease-in-out`;
 
     return () => {
       slideContainer.current.removeEventListener("transitionend", handler);
     };
-  }, [count, setCount]);
+  }, [count]);
 
   const mouseDownHandler = (downEvent) => {
     downEvent.preventDefault();
@@ -93,10 +101,6 @@ function Carousel() {
     slideContainer.current.addEventListener("mouseup", mouseUpHandler);
   };
 
-  useEffect(() => {
-    slideContainer.current.style.transform = `translateX(${-offset}px)`;
-  }, [count]);
-
   return (
     <section className={styles.main}>
       <div className={styles.bannerWarp}>
@@ -106,6 +110,10 @@ function Carousel() {
               className={styles.slickTrack}
               style={{
                 width: `${width}px`,
+                transform: `translateX(${-offset}px)`,
+                transition: `${
+                  fakeCount ? "none" : "transform 350ms ease-in-out"
+                }`,
               }}
               ref={slideContainer}
               onMouseDown={mouseDownHandler}
@@ -125,12 +133,8 @@ function Carousel() {
           </div>
         </div>
 
-        <button onClick={nextArrow} style={{ fontSize: "40px" }}>
-          {">"}
-        </button>
-        <button onClick={prevArrow} style={{ fontSize: "40px" }}>
-          {"<"}
-        </button>
+        <ArrowIcon direction="next" handleClick={nextArrow} />
+        <ArrowIcon direction="prev" handleClick={prevArrow} />
       </div>
     </section>
   );

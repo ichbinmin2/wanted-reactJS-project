@@ -1,0 +1,29 @@
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 120px;
+  width: 30px;
+  height: 60px;
+  opacity: 0.5;
+  border-radius: 15px;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.right {
+  right: calc((100% - 1200px) / 2);
+}
+
+/* 
+.left {
+  
+} */
+
+.arrowIcon {
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: inherit;
+}

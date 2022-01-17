@@ -1,15 +1,17 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Carousel.module.css";
 import DATA from "./bannerData";
 import CarouselItem from "./CarouselItem/CarouselItem";
+import ArrowIcon from "../ArrowIcon/ArrowIcon";
 
 function Carousel() {
   const [count, setCount] = useState(0);
   const [isTranstioning, setIsTranstioning] = useState(false);
+
   // ref
   const slideContainer = useRef();
 
-  // Data
+  // DATA
   const bannerList = DATA;
   const slideLength = bannerList.length;
 
@@ -24,7 +26,12 @@ function Carousel() {
     }
   };
 
-  const prevArrow = () => {};
+  const prevArrow = () => {
+    if (!isTranstioning) {
+      setCount((old) => old + -1);
+      setIsTranstioning(true);
+    }
+  };
 
   useEffect(() => {
     const handler = () => {
@@ -33,11 +40,14 @@ function Carousel() {
       if (count >= slideLength) {
         slideContainer.current.style.transition = "none";
         setCount(0);
+      } else if (count <= -1) {
+        slideContainer.current.style.transition = "none";
+        setCount(slideLength - 1);
       }
     };
 
     slideContainer.current.addEventListener("transitionend", handler);
-    slideContainer.current.style.transition = `transform 500ms ease 0s`;
+    slideContainer.current.style.transition = `transform 350ms ease-in-out`;
 
     return () => {
       slideContainer.current.removeEventListener("transitionend", handler);
@@ -45,6 +55,7 @@ function Carousel() {
   }, [count, setCount]);
 
   const width = (slideLength + 2) * bannerWidth;
+
   const leftMargin = (window.innerWidth - bannerWidth) / 2;
   const offset = bannerWidth * (count + 1) - leftMargin;
 
@@ -81,6 +92,7 @@ function Carousel() {
             </div>
           </div>
         </div>
+
         <button onClick={nextArrow} style={{ fontSize: "40px" }}>
           {">"}
         </button>

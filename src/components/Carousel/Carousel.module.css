@@ -1,8 +1,84 @@
 .main {
+  background-color: #fff;
+}
+
+.bannerWarp {
+  position: relative;
+  overflow: hidden;
+}
+
+.bannerWarp .slickSlider {
+  margin-bottom: 0;
+}
+
+.slickSlider {
+  position: relative;
+  display: block;
+  user-select: none;
+  touch-action: pan-y;
+  margin-bottom: 30px;
+}
+
+.slickList {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.slickTrack {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  overflow-x: hidden;
+}
+
+.slickTrack:after {
+  clear: both;
+}
+
+.slickTrack:before,
+.slickTrack:after {
+  content: "";
+  display: table;
+}
+
+.bannerWarp .slickSlider .slickSlide {
+  position: relative;
+}
+
+.initialized .slickSlide {
+  display: block;
+}
+
+.slickSlide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+
+.bannerWarp .slickSlider .slickSlide > div {
+  margin: 20px 10px;
 }
 
 @media (min-width: 1200px) {
   .main {
     padding-top: 25px;
+  }
+
+  .bannerWarp {
+    height: auto;
+  }
+
+  .bannerWarp .slickSlider .slickSlide {
+    padding: 0 12px;
+    box-sizing: content-box;
+  }
+
+  .bannerWarp .slickSlider .slickSlide > div {
+    margin: 0;
   }
 }

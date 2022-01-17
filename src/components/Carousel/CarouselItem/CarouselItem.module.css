@@ -1,0 +1,141 @@
+.mainBannerClick > div > a > img {
+  display: inline-block;
+}
+
+.mainBannerClick img {
+  display: block;
+}
+
+.thumImgBox {
+  /* filter: brightness(50%); */
+}
+
+.thumImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.infoBox {
+  text-align: center;
+}
+
+.infoBox > h2 {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.infoBox > h3 {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #666;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.divider {
+  display: none;
+}
+
+.rootDivider {
+  height: 1px;
+  margin: 0;
+  border: none;
+  flex-shrink: 0;
+  background-color: #ececec;
+}
+
+.infoDirectBtn {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: #36f;
+}
+
+.sizeMediumBtn {
+  height: 40px;
+  font-size: 15px;
+}
+
+.textPrimaryBtn {
+  color: #36f;
+}
+
+.btnText {
+  padding: 6px 8px;
+}
+
+.rootBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 0 27px;
+  vertical-align: middle;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.linkBtnLabel {
+  width: 100%;
+  font-size: inherit;
+  font-weight: inherit;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+  color: inherit;
+}
+
+.linkBtn {
+  margin: -2px -1px 0 2px;
+}
+
+@media (min-width: 1200px) {
+  .infoBox {
+    position: absolute;
+    bottom: 28px;
+    width: 330px;
+    height: 146px;
+    border-radius: 4px;
+    background-color: #fff;
+    opacity: 0;
+    text-align: left;
+    left: 34px;
+  }
+
+  .infoBox > h2 {
+    margin: 0 20px;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .infoBox > h3 {
+    margin: 0 20px;
+    height: 44px;
+    font-size: 14px;
+    line-height: 1.64px;
+    color: #333;
+  }
+
+  .divider {
+    display: block;
+  }
+
+  .infoDirectBtn {
+    margin: 6px 0 0 13px;
+  }
+}

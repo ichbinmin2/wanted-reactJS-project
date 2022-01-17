@@ -14,10 +14,16 @@ function Carousel() {
   // DATA
   const bannerList = DATA;
   const slideLength = bannerList.length;
+  const firstBanner = bannerList[0];
+  const lastBanner = bannerList[bannerList.length - 1];
 
   const rightMargin = 24;
   const bannerInnerWidth = 1060;
   const bannerWidth = bannerInnerWidth + rightMargin;
+
+  const width = (slideLength + 2) * bannerWidth;
+  const leftMargin = (window.innerWidth - bannerWidth) / 2;
+  const offset = bannerWidth * (count + 1) - leftMargin;
 
   const nextArrow = () => {
     if (!isTranstioning) {
@@ -34,6 +40,8 @@ function Carousel() {
   };
 
   useEffect(() => {
+    console.log(slideLength);
+    console.log(count);
     const handler = () => {
       setIsTranstioning(false);
 
@@ -54,17 +62,40 @@ function Carousel() {
     };
   }, [count, setCount]);
 
-  const width = (slideLength + 2) * bannerWidth;
+  const mouseDownHandler = (downEvent) => {
+    downEvent.preventDefault();
+    const startX = downEvent.clientX;
 
-  const leftMargin = (window.innerWidth - bannerWidth) / 2;
-  const offset = bannerWidth * (count + 1) - leftMargin;
+    const mouseMoveHandler = (event) => {
+      const dx = startX - event.clientX;
+      slideContainer.current.style.transform = `translateX(${-(
+        offset + dx
+      )}px)`;
+    };
+
+    const mouseUpHandler = (event) => {
+      const dx = startX - event.clientX;
+      if (Math.abs(dx) > 300) {
+        if (dx > 0) {
+          nextArrow();
+        } else {
+          prevArrow();
+        }
+      } else {
+        slideContainer.current.style.transform = `translateX(${-offset}px)`;
+      }
+
+      slideContainer.current.removeEventListener("mousemove", mouseMoveHandler);
+      slideContainer.current.removeEventListener("mouseup", mouseUpHandler);
+    };
+
+    slideContainer.current.addEventListener("mousemove", mouseMoveHandler);
+    slideContainer.current.addEventListener("mouseup", mouseUpHandler);
+  };
 
   useEffect(() => {
     slideContainer.current.style.transform = `translateX(${-offset}px)`;
   }, [count]);
-
-  const firstBanner = bannerList[0];
-  const lastBanner = bannerList[bannerList.length - 1];
 
   return (
     <section className={styles.main}>
@@ -77,6 +108,7 @@ function Carousel() {
                 width: `${width}px`,
               }}
               ref={slideContainer}
+              onMouseDown={mouseDownHandler}
             >
               <div className={styles.slickSlide}>
                 <CarouselItem info={lastBanner} key="lastCopy" />

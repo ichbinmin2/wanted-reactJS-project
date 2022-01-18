@@ -29,6 +29,7 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html",
     }),
+    new CopyPlugin({ patterns: [{ from: "public/images", to: "images/" }] }),
   ],
   // webpack dev server
   devServer: {

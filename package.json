@@ -8,6 +8,7 @@
     "start": "webpack-dev-server --open"
   },
   "dependencies": {
+    "copy-webpack-plugin": "^10.2.0",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "postcss-preset-env": "^7.2.0",

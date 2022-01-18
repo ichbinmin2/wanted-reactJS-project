@@ -120,7 +120,12 @@ function Carousel() {
               onMouseDown={mouseDownHandler}
             >
               <div className={styles.slickSlide}>
-                <CarouselItem info={lastBanner} key="lastCopy" />
+                <CarouselItem
+                  info={lastBanner}
+                  key="lastCopy"
+                  count={count}
+                  index={lastBanner.id - 1}
+                />
               </div>
               {bannerList.map((info) => (
                 <div className={styles.slickSlide}>
@@ -133,7 +138,12 @@ function Carousel() {
                 </div>
               ))}
               <div className={styles.slickSlide}>
-                <CarouselItem info={firstBanner} key="firstCopy" />
+                <CarouselItem
+                  info={firstBanner}
+                  key="firstCopy"
+                  count={count}
+                  index={firstBanner.id - 1}
+                />
               </div>
             </div>
           </div>

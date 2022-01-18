@@ -4,13 +4,21 @@ import styles from "./CarouselItem.module.css";
 
 const RightArrow = "/images/icons/right-arrow.svg";
 
-const CarouselItem = ({ info }) => {
+const CarouselItem = ({ info, count, index }) => {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    count === index && setActive(true);
+  }, [count]);
+
   return (
     <div
       className={styles.mainBannerClick}
       style={{ width: "100%", display: "inline-block" }}
     >
-      <div className={styles.thumImgBox} data-target="carousel">
+      <div
+        className={`${styles.thumImgBox} ${active && styles.thumImgBoxActive}`}
+      >
         <a href="###" data-target="card">
           <img
             src={info.thumailUrl}
@@ -19,7 +27,8 @@ const CarouselItem = ({ info }) => {
           />
         </a>
       </div>
-      <div className={`${styles.infoBox} `}>
+
+      <div className={`${styles.infoBox} ${active && styles.active}`}>
         <h2>{info.title}</h2>
         <h3>{info.content}</h3>
         <hr className={`${styles.divider} ${styles.rootDivider}`} />

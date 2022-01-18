@@ -9,8 +9,6 @@ function Carousel() {
   const [isTranstioning, setIsTranstioning] = useState(false);
   const [fakeCount, setFakeCount] = useState(false);
 
-  const [active, setActive] = useState(false);
-
   // ref
   const slideContainer = useRef();
 
@@ -29,14 +27,16 @@ function Carousel() {
   const leftMargin = (windowWidth - bannerWidth) / 2;
   const offset = bannerWidth * (count + 1) - leftMargin;
 
+  // onClick moving slide
   const nextArrow = () => {
-    // transtioning이 지속되고 있다면
+    // transtioning
     if (!isTranstioning) {
       setCount((old) => old + 1);
       setIsTranstioning(true);
     }
 
     setFakeCount(false);
+    handlerInfoBox(count);
   };
 
   const prevArrow = () => {
@@ -46,11 +46,13 @@ function Carousel() {
     }
 
     setFakeCount(false);
+    handlerInfoBox(count);
   };
 
+  // fake infinite slide
   useEffect(() => {
     const handler = () => {
-      // transitioning
+      // transitioning reset
       setIsTranstioning(false);
 
       if (count >= slideLength) {
@@ -70,6 +72,7 @@ function Carousel() {
     };
   }, [count]);
 
+  // mouse moving slide
   const mouseDownHandler = (downEvent) => {
     downEvent.preventDefault();
     const startX = downEvent.clientX;
@@ -123,7 +126,12 @@ function Carousel() {
               </div>
               {bannerList.map((info) => (
                 <div className={styles.slickSlide}>
-                  <CarouselItem info={info} key={info.id} />
+                  <CarouselItem
+                    info={info}
+                    key={info.id}
+                    index={info.id - 1}
+                    count={count}
+                  />
                 </div>
               ))}
               <div className={styles.slickSlide}>

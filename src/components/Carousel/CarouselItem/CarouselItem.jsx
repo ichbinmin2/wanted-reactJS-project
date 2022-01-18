@@ -16,40 +16,44 @@ const CarouselItem = ({ info, count, index }) => {
   }, [count]);
 
   return (
-    <div
-      className={styles.mainBannerClick}
-      style={{ width: "100%", display: "inline-block" }}
-    >
+    <div className={styles.mainBanner}>
       <div
-        className={`${styles.thumImgBox} ${active && styles.thumImgBoxActive}`}
+        className={styles.mainBannerClick}
+        style={{ width: "100%", display: "inline-block" }}
       >
-        <a href="###" data-target="card">
-          <img
-            src={info.thumailUrl}
-            alt={info.title}
-            className={styles.thumImg}
-          />
-        </a>
-      </div>
+        <div
+          className={`${styles.thumImgBox} ${
+            active && styles.thumImgBoxActive
+          }`}
+        >
+          <a href="###" data-target="card">
+            <img
+              src={info.thumailUrl}
+              alt={info.title}
+              className={styles.thumImg}
+            />
+          </a>
+        </div>
 
-      <div className={`${styles.infoBox} ${active && styles.active}`}>
-        <h2>{info.title}</h2>
-        <h3>{info.content}</h3>
-        <hr className={`${styles.divider} ${styles.rootDivider}`} />
-        <a
-          className={`${styles.rootBtn} ${styles.btnText}
+        <div className={`${styles.infoBox} ${active && styles.active}`}>
+          <h2>{info.title}</h2>
+          <h3>{info.content}</h3>
+          <hr className={`${styles.divider} ${styles.rootDivider}`} />
+          <a
+            className={`${styles.rootBtn} ${styles.btnText}
       ${styles.textPrimaryBtn} ${styles.sizeMediumBtn} 
       ${styles.infoDirectBtn}`}
-        >
-          <span className={styles.linkBtnLabel}>
-            바로가기
-            <span className={styles.linkBtn}>
-              <span className={styles.linkBtnIcon}>
-                <img src={RightArrow} alt="" />
+          >
+            <span className={styles.linkBtnLabel}>
+              바로가기
+              <span className={styles.linkBtn}>
+                <span className={styles.linkBtnIcon}>
+                  <img src={RightArrow} alt="" />
+                </span>
               </span>
             </span>
-          </span>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   );

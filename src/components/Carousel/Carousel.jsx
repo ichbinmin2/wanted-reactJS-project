@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./Carousel.module.css";
 import DATA from "./bannerData";
 import CarouselItem from "./CarouselItem/CarouselItem";
@@ -8,23 +8,25 @@ function Carousel() {
   const [count, setCount] = useState(0);
   const [isTranstioning, setIsTranstioning] = useState(false);
   const [fakeCount, setFakeCount] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    window.innerWidth || document.body.clientWidth
+  );
 
   // ref
   const slideContainer = useRef();
 
   // DATA
   const bannerList = DATA;
-  const slideLength = bannerList.length;
   const firstBanner = bannerList[0];
   const lastBanner = bannerList[bannerList.length - 1];
 
-  const windowWidth = window.innerWidth || document.body.clientWidth;
+  const slideLength = bannerList.length;
   const rightMargin = 24;
-  const bannerInnerWidth = 1060;
-  const bannerWidth = bannerInnerWidth + rightMargin;
+  const bannerWidth =
+    (windowWidth >= 1200 ? 1060 : windowWidth - 100) + rightMargin;
 
   const width = (slideLength + 2) * bannerWidth;
-  const leftMargin = (windowWidth - bannerWidth) / 2;
+  const leftMargin = windowWidth >= 1200 ? (windowWidth - bannerWidth) / 2 : 38;
   const offset = bannerWidth * (count + 1) - leftMargin;
 
   // onClick moving slide
@@ -46,6 +48,21 @@ function Carousel() {
 
     setFakeCount(false);
   };
+
+  useLayoutEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, [window.innerWidth]);
+
+  // responsive banner
+  useLayoutEffect(() => {
+    const responsiveHandler = (innerWidth) => {
+      setWindowWidth(innerWidth);
+    };
+
+    window.addEventListener("resize", (event) =>
+      responsiveHandler(event.target.innerWidth)
+    );
+  }, [window.innerWidth]);
 
   // fake infinite slide
   useEffect(() => {
@@ -82,7 +99,7 @@ function Carousel() {
       )}px)`;
     };
 
-    const mouseUpHandler = (event) => {
+    const mouseUpLeaveHandler = (event) => {
       const dx = startX - event.clientX;
       if (Math.abs(dx) > 300) {
         if (dx > 0) {
@@ -95,11 +112,19 @@ function Carousel() {
       }
 
       slideContainer.current.removeEventListener("mousemove", mouseMoveHandler);
-      slideContainer.current.removeEventListener("mouseup", mouseUpHandler);
+      slideContainer.current.removeEventListener(
+        "mouseup",
+        mouseUpLeaveHandler
+      );
+      slideContainer.current.removeEventListener(
+        "mouseleave",
+        mouseUpLeaveHandler
+      );
     };
 
     slideContainer.current.addEventListener("mousemove", mouseMoveHandler);
-    slideContainer.current.addEventListener("mouseup", mouseUpHandler);
+    slideContainer.current.addEventListener("mouseup", mouseUpLeaveHandler);
+    slideContainer.current.addEventListener("mouseleave", mouseUpLeaveHandler);
   };
 
   return (

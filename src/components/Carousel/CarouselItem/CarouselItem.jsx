@@ -8,7 +8,11 @@ const CarouselItem = ({ info, count, index }) => {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    count === index && setActive(true);
+    if (count === index) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
   }, [count]);
 
   return (

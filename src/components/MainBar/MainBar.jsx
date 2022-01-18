@@ -87,7 +87,7 @@ function MainBar() {
                     className={`${styles.noticeIcon} ${styles.asideIcon}`}
                   />
                 </button>
-                {/* new logo */}
+
                 <span
                   className={styles.newIconBox}
                   style={{
@@ -108,10 +108,9 @@ function MainBar() {
                         backgroundImage: `url(${ProfileImage}), url(https://static.wanted.co.kr/images/profile_default.png)`,
                       }}
                     ></div>
-                    {/* <img src={ProfileImage} className={styles.profileImg} /> */}
                   </div>
                 </button>
-                {/* new logo */}
+
                 <span
                   className={styles.newIconBox}
                   style={{

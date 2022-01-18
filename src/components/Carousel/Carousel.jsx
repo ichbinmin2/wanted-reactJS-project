@@ -36,7 +36,6 @@ function Carousel() {
     }
 
     setFakeCount(false);
-    handlerInfoBox(count);
   };
 
   const prevArrow = () => {
@@ -46,7 +45,6 @@ function Carousel() {
     }
 
     setFakeCount(false);
-    handlerInfoBox(count);
   };
 
   // fake infinite slide

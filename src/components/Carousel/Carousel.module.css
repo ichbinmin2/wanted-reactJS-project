@@ -75,8 +75,6 @@
 
   .bannerWarp .slickSlider .slickSlide {
     width: 1060px;
-    /* box-sizing: content-box; */
-    /* padding: 0 12px; */
   }
 
   .bannerWarp .slickSlider .slickSlide > div {

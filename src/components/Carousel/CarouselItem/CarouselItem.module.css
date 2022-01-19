@@ -163,12 +163,22 @@
     background-color: #fff;
     opacity: 0;
     text-align: left;
-    left: 34px;
+    left: 22px;
   }
 
   .active {
-    animation: all 0.4s ease-in-out;
+    animation: fadein 0.4s ease-in;
     opacity: 1;
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 
   .infoBox > h2 {

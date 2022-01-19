@@ -34,7 +34,6 @@
   flex-wrap: wrap;
 }
 
-/* navTop */
 .navTopWarp {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -113,7 +112,6 @@
   height: 11;
 }
 
-/*** aside ***/
 .aside.isLoggedIn {
   padding: 9px 0;
 }
@@ -162,7 +160,6 @@
   left: 24px;
 }
 
-/* aside newIcon */
 .newIconBox {
   display: inline-flex;
   align-items: center;
@@ -173,20 +170,16 @@
   border-radius: 5px;
 }
 
-/* aside search */
 .aside > ul li .searchBtn {
   position: relative;
   margin-top: 5px;
 }
 
-/* aside notice */
 .aside > ul li .noticeBtn {
   position: relative;
   margin-right: 10px;
   margin-top: 5px;
 }
-
-/* aside profile */
 
 .aside > ul .profile {
   display: -webkit-inline-flex;
@@ -232,7 +225,6 @@
   background-repeat: no-repeat;
 }
 
-/* aside service */
 .aside > ul .leftDivision {
   display: inline-flex;
 }
@@ -265,7 +257,6 @@
   line-height: 32px;
 }
 
-/* seeMore menu */
 .aside > ul li .seeMoreBtn {
   margin-right: 10px;
   padding-left: 10px;

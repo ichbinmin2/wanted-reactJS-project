@@ -26,7 +26,7 @@ const CarouselItem = ({ info, count, index }) => {
             active && styles.thumImgBoxActive
           }`}
         >
-          <a href="###" data-target="card">
+          <a href="/" data-target="card">
             <img
               src={info.thumailUrl}
               alt={info.title}
@@ -35,12 +35,12 @@ const CarouselItem = ({ info, count, index }) => {
           </a>
         </div>
 
-        {/* info box */}
         <div className={`${styles.infoBox} ${active && styles.active}`}>
           <h2>{info.title}</h2>
           <h3>{info.content}</h3>
           <hr className={`${styles.divider} ${styles.rootDivider}`} />
           <a
+            href="/"
             className={`${styles.rootBtn} ${styles.btnText}
       ${styles.textPrimaryBtn} ${styles.sizeMediumBtn} 
       ${styles.infoDirectBtn}`}

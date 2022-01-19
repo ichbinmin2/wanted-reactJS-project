@@ -26,3 +26,7 @@
   align-items: inherit;
   justify-content: inherit;
 }
+
+.arrowImg {
+  width: 16px;
+}

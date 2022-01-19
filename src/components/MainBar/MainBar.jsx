@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./MainBar.module.css";
 
 const BetaIcon = "/images/icons/beta.svg";
 const newTextIcon = "/images/icons/newText.svg";
-
 const NavTopIcon = "/images/icons/menu.png";
 const LogoIcon = "/images/icons/logo.png";
 const SearchIcon = "/images/icons/search.svg";
@@ -20,48 +19,47 @@ function MainBar() {
     >
       <div className={`${styles.warpper} ${styles.warpIsLoggedId}`}>
         <nav className={styles.nav}>
-          {/* navTop */}
           <div className={styles.navTop}>
             <div className={styles.navTopWarp}>
               <button className={styles.navTopBtn}>
                 <img src={NavTopIcon} className={styles.navTopIcon} />
               </button>
-              <a href="###" className={styles.logoLink}>
+              <a href="/" className={styles.logoLink}>
                 <img src={LogoIcon} className={styles.logoIcon} />
               </a>
             </div>
           </div>
-          {/* menu list */}
+
           <ul className={styles.menuList}>
             <li
               className={`${styles.menu} ${styles.homeVisible} ${styles.homeButton}`}
             >
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 홈
               </a>
             </li>
             <li className={styles.menu}>
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 채용
               </a>
             </li>
             <li className={styles.menu}>
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 이벤트
               </a>
             </li>
             <li className={`${styles.menu} ${styles.moreVisible}`}>
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 직군별 연봉
               </a>
             </li>
             <li className={`${styles.menu} ${styles.moreVisible}`}>
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 이력서
               </a>
             </li>
             <li className={`${styles.menu} ${styles.moreVisible}`}>
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 커뮤니티
                 <span>
                   <img src={newTextIcon} className={styles.newTextIcon} />
@@ -69,12 +67,12 @@ function MainBar() {
               </a>
             </li>
             <li className={`${styles.menu} ${styles.moreVisible}`}>
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 프리랜서
               </a>
             </li>
             <li className={`${styles.menu} ${styles.moreVisible}`}>
-              <a herf="###" className={styles.menuA}>
+              <a herf="/" className={styles.menuA}>
                 AI 합격예측
                 <span>
                   <img src={BetaIcon} className={styles.betaIcon} />
@@ -82,7 +80,6 @@ function MainBar() {
               </a>
             </li>
           </ul>
-          {/* aside icon menu */}
           <aside className={`${styles.aside} ${styles.isLoggedIn}`}>
             <ul className={styles.asideWarp}>
               <li className={`${styles.search}`}>
@@ -139,7 +136,7 @@ function MainBar() {
               <li
                 className={`${styles.service} ${styles.leftDivision} ${styles.btnMoreVisible}`}
               >
-                <a href="###" className={styles.serviceLink}>
+                <a href="/" className={styles.serviceLink}>
                   기업 서비스
                 </a>
               </li>

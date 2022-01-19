@@ -13,10 +13,7 @@ function Carousel() {
     window.innerWidth || document.body.clientWidth
   );
 
-  // ref
   const slideContainer = useRef();
-
-  // DATA
   const bannerList = DATA;
   const firstBanner = bannerList[0];
   const lastBanner = bannerList[bannerList.length - 1];
@@ -30,9 +27,7 @@ function Carousel() {
   const leftMargin = windowWidth >= 1200 ? (windowWidth - bannerWidth) / 2 : 38;
   const offset = bannerWidth * (count + 1) - leftMargin;
 
-  // onClick moving slide
   const nextArrow = () => {
-    // transtioning
     if (!isTranstioning) {
       setCount((old) => old + 1);
       setIsTranstioning(true);
@@ -54,7 +49,6 @@ function Carousel() {
     setWindowWidth(window.innerWidth);
   }, [window.innerWidth]);
 
-  // responsive banner
   useLayoutEffect(() => {
     const responsiveHandler = (innerWidth) => {
       setWindowWidth(innerWidth);
@@ -65,10 +59,8 @@ function Carousel() {
     );
   }, [window.innerWidth]);
 
-  // fake infinite slide
   useEffect(() => {
     const handler = () => {
-      // transitioning reset
       setIsTranstioning(false);
 
       if (count >= slideLength) {
@@ -88,7 +80,6 @@ function Carousel() {
     };
   }, [count]);
 
-  // mouse moving slide
   const mouseDownHandler = (downEvent) => {
     downEvent.preventDefault();
     const startX = downEvent.clientX;

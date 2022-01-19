@@ -35,6 +35,7 @@ const CarouselItem = ({ info, count, index }) => {
           </a>
         </div>
 
+        {/* info box */}
         <div className={`${styles.infoBox} ${active && styles.active}`}>
           <h2>{info.title}</h2>
           <h3>{info.content}</h3>

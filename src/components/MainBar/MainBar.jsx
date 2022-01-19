@@ -18,7 +18,7 @@ function MainBar() {
       className={styles.section}
       style={{ position: "fixed", paddingRight: "initial" }}
     >
-      <div className={styles.warpper}>
+      <div className={`${styles.warpper} ${styles.warpIsLoggedId}`}>
         <nav className={styles.nav}>
           {/* navTop */}
           <div className={styles.navTop}>

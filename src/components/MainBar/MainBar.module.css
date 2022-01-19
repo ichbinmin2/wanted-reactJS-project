@@ -352,9 +352,17 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
   .warpper {
-    margin: 0 auto;
-    height: 110px;
     width: 90%;
+  }
+
+  .warpper {
+    margin: 0 auto;
+    height: 50px;
+  }
+
+  .warpper,
+  .warpper.warpIsLoggedId {
+    height: 110px;
   }
 
   .navTop {
@@ -415,6 +423,11 @@
 }
 
 @media (max-width: 767px) {
+  .warpper,
+  .warpper.warpIsLoggedId {
+    height: 110px;
+  }
+
   .navTop {
     height: 60px;
     width: 100%;

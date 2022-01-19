@@ -34,6 +34,11 @@
   text-align: center;
 }
 
+.active {
+  -webkit-animation: none;
+  animation: none;
+}
+
 .infoBox > h2 {
   margin-top: 20px;
   font-size: 18px;
@@ -64,11 +69,13 @@
   height: 1px;
   margin: 0;
   border: none;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
   flex-shrink: 0;
   background-color: #ececec;
 }
 
-.infoDirectBtn {
+.infoBox .infoDirectBtn {
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
@@ -84,7 +91,7 @@
   color: #36f;
 }
 
-.btnText {
+.infoBox .btnText {
   padding: 6px 8px;
 }
 
@@ -114,7 +121,36 @@
 }
 
 .linkBtn {
-  margin: -2px -1px 0 2px;
+  margin-top: -2px;
+  margin-right: -1px;
+  margin-left: 2px;
+}
+
+.linkBtnIcon {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: inherit;
+  -ms-flex-align: inherit;
+  align-items: inherit;
+  -webkit-justify-content: inherit;
+  -ms-flex-pack: inherit;
+  justify-content: inherit;
+}
+
+.linkBtnIcon .linkImg {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: inherit;
 }
 
 @media (min-width: 1200px) {
@@ -136,7 +172,8 @@
   }
 
   .infoBox > h2 {
-    margin: 0 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     font-size: 20px;
     line-height: 1.5;
   }
@@ -153,7 +190,7 @@
     display: block;
   }
 
-  .infoDirectBtn {
+  .infoBox .infoDirectBtn {
     margin: 6px 0 0 13px;
   }
 }

@@ -48,7 +48,11 @@ const CarouselItem = ({ info, count, index }) => {
               바로가기
               <span className={styles.linkBtn}>
                 <span className={styles.linkBtnIcon}>
-                  <img src={RightArrow} alt="" />
+                  <img
+                    src={RightArrow}
+                    alt="RightArrow"
+                    className={styles.linkImg}
+                  />
                 </span>
               </span>
             </span>

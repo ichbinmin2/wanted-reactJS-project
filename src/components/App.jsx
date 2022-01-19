@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import Carousel from "./Carousel/Carousel";
 import MainBar from "./MainBar/MainBar";
 import "../common/reset.css";
+import styles from "./App.module.css";
 
 function App() {
   return (
     <>
       <MainBar />
-      <div style={{ height: "50px" }}></div>
+      <div className={styles.divider}></div>
       <Carousel />
     </>
   );

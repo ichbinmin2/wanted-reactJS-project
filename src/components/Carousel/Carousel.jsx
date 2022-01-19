@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./Carousel.module.css";
 import DATA from "./bannerData";
+
 import CarouselItem from "./CarouselItem/CarouselItem";
 import ArrowIcon from "../ArrowIcon/ArrowIcon";
 

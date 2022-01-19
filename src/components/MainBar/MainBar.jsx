@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./MainBar.module.css";
 
+const BetaIcon = "/images/icons/beta.svg";
+const newTextIcon = "/images/icons/newText.svg";
+
 const NavTopIcon = "/images/icons/menu.png";
 const LogoIcon = "/images/icons/logo.png";
-
 const SearchIcon = "/images/icons/search.svg";
 const NoticeIcon = "/images/icons/notice.svg";
 const NewIcon = "/images/icons/new.svg";
@@ -12,7 +14,10 @@ const ProfileImage = "/images/profile.jpeg";
 
 function MainBar() {
   return (
-    <section className={styles.section}>
+    <section
+      className={styles.section}
+      style={{ position: "fixed", paddingRight: "initial" }}
+    >
       <div className={styles.warpper}>
         <nav className={styles.nav}>
           {/* navTop */}
@@ -28,7 +33,9 @@ function MainBar() {
           </div>
           {/* menu list */}
           <ul className={styles.menuList}>
-            <li className={`${styles.menu} ${styles.homeVisible}`}>
+            <li
+              className={`${styles.menu} ${styles.homeVisible} ${styles.homeButton}`}
+            >
               <a herf="###" className={styles.menuA}>
                 홈
               </a>
@@ -56,6 +63,9 @@ function MainBar() {
             <li className={`${styles.menu} ${styles.moreVisible}`}>
               <a herf="###" className={styles.menuA}>
                 커뮤니티
+                <span>
+                  <img src={newTextIcon} className={styles.newTextIcon} />
+                </span>
               </a>
             </li>
             <li className={`${styles.menu} ${styles.moreVisible}`}>
@@ -65,12 +75,15 @@ function MainBar() {
             </li>
             <li className={`${styles.menu} ${styles.moreVisible}`}>
               <a herf="###" className={styles.menuA}>
-                AI 합격 예측
+                AI 합격예측
+                <span>
+                  <img src={BetaIcon} className={styles.betaIcon} />
+                </span>
               </a>
             </li>
           </ul>
           {/* aside icon menu */}
-          <aside className={styles.aside}>
+          <aside className={`${styles.aside} ${styles.isLoggedIn}`}>
             <ul className={styles.asideWarp}>
               <li className={`${styles.search}`}>
                 <button className={`${styles.searchBtn} ${styles.asideBtn}`}>
@@ -87,7 +100,6 @@ function MainBar() {
                     className={`${styles.noticeIcon} ${styles.asideIcon}`}
                   />
                 </button>
-
                 <span
                   className={styles.newIconBox}
                   style={{
@@ -99,7 +111,9 @@ function MainBar() {
                   <img src={NewIcon} className={styles.newIcon} />
                 </span>
               </li>
-              <li className={`${styles.profile} ${styles.profileItem}`}>
+              <li
+                className={`${styles.profile} ${styles.profileItem} ${styles.btnMoreVisible}`}
+              >
                 <button className={`${styles.profileBtn} ${styles.asideBtn}`}>
                   <div className={styles.profileBox}>
                     <div
@@ -110,7 +124,6 @@ function MainBar() {
                     ></div>
                   </div>
                 </button>
-
                 <span
                   className={styles.newIconBox}
                   style={{
@@ -123,7 +136,9 @@ function MainBar() {
                 </span>
               </li>
 
-              <li className={`${styles.service} ${styles.leftDivision}`}>
+              <li
+                className={`${styles.service} ${styles.leftDivision} ${styles.btnMoreVisible}`}
+              >
                 <a href="###" className={styles.serviceLink}>
                   기업 서비스
                 </a>

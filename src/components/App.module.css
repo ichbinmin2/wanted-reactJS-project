@@ -1,0 +1,15 @@
+.divider {
+  height: 50px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .divider {
+    height: 110px;
+  }
+}
+
+@media (max-width: 767px) {
+  .divider {
+    height: 110px;
+  }
+}

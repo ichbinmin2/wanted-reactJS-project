@@ -1,6 +1,6 @@
 ## 👩🏻‍💻 원티드 프리온보딩 코스
 
-[과제 제출 링크](https://jovial-hermann-e95620.netlify.app/)
+[원티드 프리온보딩 코스 과제 제출 링크](https://jovial-hermann-e95620.netlify.app/)
 
 ### ▪️ 필수 구현사항
 
